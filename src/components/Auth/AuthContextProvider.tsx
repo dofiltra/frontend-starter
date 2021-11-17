@@ -1,4 +1,3 @@
-import { SignInButtons } from '../Buttons/SignIn'
 import { auth } from 'services/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
 import { useCallback, useState } from 'react'
@@ -23,11 +22,8 @@ const AuthContextProvider: React.FC = ({ children }) => {
       return <div>{translate('loading')}</div>
     }
 
-    if (user === null) {
-      return <SignInButtons />
-    }
     return children
-  }, [isInitialized, user, children, translate])
+  }, [isInitialized, children, translate])
 
   return (
     <AuthContext.Provider value={{ user }}>{getContent()}</AuthContext.Provider>

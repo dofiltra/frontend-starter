@@ -16,7 +16,6 @@ export default function MainBlock() {
     <>
       <BodyText>{translate('userCount', { count: userCount || '~' })}</BodyText>
       <BodyText>{translate('title')}</BodyText>
-      <BodyText>{user?.displayName}</BodyText>
       <SignOutButton />
     </>
   )

@@ -2,13 +2,13 @@ import { GoogleAuthProvider, signInWithRedirect } from '@firebase/auth'
 import { auth } from 'services/firebase'
 import { useLocalize } from '@borodutch-labs/localize-react'
 import AppStore from 'stores/AppStore'
-import Button from './Button'
+import DefaultButton from './Button'
 
 export const SignInButtons = () => {
   const { translate } = useLocalize()
 
   return (
-    <Button
+    <DefaultButton
       onClick={() => {
         const provider = new GoogleAuthProvider()
         auth.languageCode = AppStore.language

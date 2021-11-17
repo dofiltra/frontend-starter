@@ -1,158 +1,154 @@
+/* eslint-disable no-empty-pattern */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useState } from 'preact/hooks'
+// import { useState } from 'preact/hooks'
+import { useContext } from 'react'
+import AppStore from 'stores/AppStore'
+import AuthContext from 'components/Auth/AuthContext'
+import DefaultButton from 'components/Buttons/Button'
+import Language from 'models/Language'
 
-export default function Navbar(props: any) {
-  const [navbarOpen, setNavbarOpen] = useState(false)
+export default function Navbar({}) {
+  // const [navbarOpen, setNavbarOpen] = useState(false)
+  const { user } = useContext(AuthContext)
+
   return (
     <>
-      <nav
-        className={
-          (props.transparent
-            ? 'top-0 absolute z-50 w-full'
-            : 'relative shadow-lg bg-white') +
-          ' flex flex-wrap items-center justify-between px-2 py-3 '
-        }
-      >
-        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-          <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <a
-              className={
-                (props.transparent ? 'text-white' : 'text-gray-800') +
-                ' text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase'
-              }
-              href="https://www.creative-tim.com/learning-lab/tailwind-starter-kit#/presentation"
-            >
-              Tailwind Starter Kit
+      <div className="navbar shadow-lg bg-neutral text-neutral-content rounded-box mb-6">
+        <div className="flex-1 px-2 mx-2">
+          <a href="/" className="text-lg font-bold">
+            Dofiltra
+          </a>
+        </div>
+        <div className="flex-none hidden px-2 mx-2 lg:flex">
+          <div className="flex items-stretch">
+            <a className="btn btn-ghost btn-sm rounded-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="inline-block w-5 mr-2 stroke-current"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
+              </svg>
+              Likes
             </a>
-            <button
-              className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-              type="button"
-              onClick={() => setNavbarOpen(!navbarOpen)}
-            >
-              <i
-                className={
-                  (props.transparent ? 'text-white' : 'text-gray-800') +
-                  ' fas fa-bars'
-                }
-              ></i>
-            </button>
-          </div>
-          <div
-            className={
-              'lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none' +
-              (navbarOpen ? ' block rounded shadow-lg' : ' hidden')
-            }
-            id="example-navbar-warning"
-          >
-            <ul className="flex flex-col lg:flex-row list-none mr-auto">
-              <li className="flex items-center">
-                <a
-                  className={
-                    (props.transparent
-                      ? 'lg:text-white lg:hover:text-gray-300 text-gray-800'
-                      : 'text-gray-800 hover:text-gray-600') +
-                    ' px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold'
-                  }
-                  href="https://www.creative-tim.com/learning-lab/tailwind-starter-kit#/login"
-                >
-                  <i
-                    className={
-                      (props.transparent
-                        ? 'lg:text-gray-300 text-gray-500'
-                        : 'text-gray-500') +
-                      ' far fa-file-alt text-lg leading-lg mr-2'
-                    }
-                  />{' '}
-                  Docs
-                </a>
-              </li>
-            </ul>
-            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              <li className="flex items-center">
-                <a
-                  className={
-                    (props.transparent
-                      ? 'lg:text-white lg:hover:text-gray-300 text-gray-800'
-                      : 'text-gray-800 hover:text-gray-600') +
-                    ' px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold'
-                  }
-                  href="#pablo"
-                >
-                  <i
-                    className={
-                      (props.transparent
-                        ? 'lg:text-gray-300 text-gray-500'
-                        : 'text-gray-500') +
-                      ' fab fa-facebook text-lg leading-lg '
-                    }
-                  />
-                  <span className="lg:hidden inline-block ml-2">Share</span>
-                </a>
-              </li>
-
-              <li className="flex items-center">
-                <a
-                  className={
-                    (props.transparent
-                      ? 'lg:text-white lg:hover:text-gray-300 text-gray-800'
-                      : 'text-gray-800 hover:text-gray-600') +
-                    ' px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold'
-                  }
-                  href="#pablo"
-                >
-                  <i
-                    className={
-                      (props.transparent
-                        ? 'lg:text-gray-300 text-gray-500'
-                        : 'text-gray-500') +
-                      ' fab fa-twitter text-lg leading-lg '
-                    }
-                  />
-                  <span className="lg:hidden inline-block ml-2">Tweet</span>
-                </a>
-              </li>
-
-              <li className="flex items-center">
-                <a
-                  className={
-                    (props.transparent
-                      ? 'lg:text-white lg:hover:text-gray-300 text-gray-800'
-                      : 'text-gray-800 hover:text-gray-600') +
-                    ' px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold'
-                  }
-                  href="#pablo"
-                >
-                  <i
-                    className={
-                      (props.transparent
-                        ? 'lg:text-gray-300 text-gray-500'
-                        : 'text-gray-500') +
-                      ' fab fa-github text-lg leading-lg '
-                    }
-                  />
-                  <span className="lg:hidden inline-block ml-2">Star</span>
-                </a>
-              </li>
-
-              <li className="flex items-center">
-                <button
-                  className={
-                    (props.transparent
-                      ? 'bg-white text-gray-800 active:bg-gray-100'
-                      : 'bg-pink-500 text-white active:bg-pink-600') +
-                    ' text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3'
-                  }
-                  type="button"
-                  style={{ transition: 'all .15s ease' }}
-                >
-                  <i className="fas fa-arrow-alt-circle-down"></i> Download
-                </button>
-              </li>
-            </ul>
+            <a className="btn btn-ghost btn-sm rounded-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="inline-block w-5 mr-2 stroke-current"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                />
+              </svg>
+              Notifications
+            </a>
+            <a className="btn btn-ghost btn-sm rounded-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="inline-block w-5 mr-2 stroke-current"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+                />
+              </svg>
+              Files
+            </a>
+            <a className="btn btn-ghost btn-sm rounded-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="inline-block w-5 mr-2 stroke-current"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                />
+              </svg>
+              Config
+            </a>
           </div>
         </div>
-      </nav>
+        <div className="flex-none">
+          <div className="flex justify-end flex-1 px-2">
+            <div className="flex items-stretch">
+              <div className="dropdown dropdown-end">
+                <div tabIndex={0} className="btn btn-ghost rounded-btn">
+                  {AppStore.language}
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
+                >
+                  {Object.values(Language).map((k) => (
+                    <DefaultButton
+                      key={k}
+                      onClick={() => {
+                        AppStore.language = k
+                      }}
+                      title={k}
+                    />
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-end flex-1 px-2">
+            <div className="flex items-stretch">
+              <div className="dropdown dropdown-end">
+                <div tabIndex={0} className="btn btn-ghost rounded-btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    className="inline-block w-6 h-6 stroke-current"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
+                >
+                  <li className="text-center">
+                    <b>{user?.displayName?.toUpperCase()}</b>
+                  </li>
+                  <li>
+                    <a>Item 2</a>
+                  </li>
+                  <li>
+                    <a>Item 3</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

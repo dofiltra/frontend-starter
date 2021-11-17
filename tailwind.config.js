@@ -1,6 +1,8 @@
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
+
 module.exports = {
   purge: ['./public/index.html', './src/**/!(tailwind).{ts,tsx}'],
+  plugins: [require('daisyui')],
   theme: {
     extend: {
       colors: {
@@ -28,5 +30,13 @@ module.exports = {
       center: true,
       padding: '2rem',
     },
+  },
+  daisyui: {
+    styled: true,
+    themes: true,
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
   },
 }

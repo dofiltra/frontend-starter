@@ -21,7 +21,7 @@ const button = classnames(
   'focus:outline-none',
   'mx-1'
 )
-const Button: FC<ButtonProps> = ({ onClick, title }) => {
+const DefaultButton: FC<ButtonProps> = ({ onClick, title }) => {
   return (
     <button className={button} onClick={onClick}>
       {title}
@@ -29,4 +29,4 @@ const Button: FC<ButtonProps> = ({ onClick, title }) => {
   )
 }
 
-export default Button
+export default DefaultButton

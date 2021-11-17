@@ -4,7 +4,7 @@ import Navbar from 'components/Navbar/Navbar'
 export default function Login() {
   return (
     <>
-      <Navbar transparent />
+      <Navbar />
       <main>
         <section className="absolute w-full h-full">
           <div

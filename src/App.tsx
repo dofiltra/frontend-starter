@@ -1,6 +1,6 @@
 import AuthContextProvider from 'components/Auth/AuthContextProvider'
 import FooterSmall from 'components/Footer/FooterSmall'
-import LanguageButtons from 'components/LanguageButtons'
+import LanguageButtons from 'components/Buttons/Language'
 import LocalizationProvider from 'localization/LocalizationProvider'
 import MainBlock from 'components/MainBlock'
 import Navbar from 'components/Navbar/Navbar'
@@ -14,7 +14,7 @@ const App = () => {
           <Navbar />
           <MainBlock />
           <LanguageButtons />
-          <FooterSmall absolute={true} />
+          <FooterSmall transparent />
         </AuthContextProvider>
       </LocalizationProvider>
     </Root>

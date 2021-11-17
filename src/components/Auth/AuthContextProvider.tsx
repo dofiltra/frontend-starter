@@ -1,4 +1,4 @@
-import { SignInButtons } from './SignIn'
+import { SignInButtons } from '../Buttons/SignIn'
 import { auth } from 'services/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
 import { useCallback, useState } from 'react'

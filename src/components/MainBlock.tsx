@@ -1,5 +1,5 @@
 import { BodyText } from 'components/Text'
-import { SignOutButton } from './Auth/SignOut'
+import { SignOutButton } from './Buttons/SignOut'
 import { h } from 'preact'
 import { useContext } from 'preact/hooks'
 import { useLocalize } from '@borodutch-labs/localize-react'

@@ -4,10 +4,5 @@ import Button from '../Button'
 
 export const SignOutButton = () => {
   const { translate } = useLocalize()
-
-  const logout = async () => {
-    await auth.signOut()
-  }
-
-  return <Button onClick={() => logout()} title={translate('sign out')} />
+  return <Button onClick={() => auth.signOut()} title={translate('sign out')} />
 }

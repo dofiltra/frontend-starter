@@ -1,10 +1,10 @@
 import { createContext } from 'react'
 
 export type User = {
-  displayName: string
-  email: string
-  photo: string
-  uid: string
+  displayName?: string | null
+  email?: string | null
+  photo?: string | null
+  uid: string | null
 }
 
 type AuthContextValue = {

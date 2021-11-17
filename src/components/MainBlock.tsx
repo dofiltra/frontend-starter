@@ -8,8 +8,12 @@ export default function MainBlock() {
 
   return (
     <>
-      <BodyText>{translate('userCount', { count: userCount || '~' })}</BodyText>
-      <BodyText>{translate('title')}</BodyText>
+      <div className="h-96">
+        <BodyText>
+          {translate('userCount', { count: userCount || '~' })}
+        </BodyText>
+        <BodyText>{translate('title')}</BodyText>
+      </div>
     </>
   )
 }

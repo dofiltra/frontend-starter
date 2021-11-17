@@ -1,3 +1,4 @@
+import AuthContextProvider from 'components/Auth/AuthContextProvider'
 import LanguageButtons from 'components/LanguageButtons'
 import LocalizationProvider from 'localization/LocalizationProvider'
 import MainBlock from 'components/MainBlock'
@@ -7,8 +8,10 @@ const App = () => {
   return (
     <Root>
       <LocalizationProvider>
-        <MainBlock />
-        <LanguageButtons />
+        <AuthContextProvider>
+          <MainBlock />
+          <LanguageButtons />
+        </AuthContextProvider>
       </LocalizationProvider>
     </Root>
   )

@@ -3,6 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 // import { useState } from 'preact/hooks'
+import { Link } from 'react-router-dom'
 import { SignInButtons } from 'components/Buttons/SignIn'
 import { SignOutButton } from 'components/Buttons/SignOut'
 import { useContext } from 'react'
@@ -20,9 +21,9 @@ export default function Navbar({}) {
     <>
       <div className="navbar shadow-lg bg-neutral text-neutral-content rounded-box mb-6">
         <div className="flex-1 px-2 mx-2">
-          <a href="/" className="text-lg font-bold">
+          <Link to="/" className="text-lg font-bold">
             Dofiltra
-          </a>
+          </Link>
         </div>
         <div className="flex-none">
           <div className="flex justify-end flex-1 px-2">

@@ -70,7 +70,7 @@ export default function Navbar({}) {
                   tabIndex={0}
                   className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
                 >
-                  <li className="text-center">
+                  <li className="text-center pb-3">
                     <b>{user?.displayName?.toUpperCase()}</b>
                   </li>
                   {!user?.uid && (

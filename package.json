@@ -4,7 +4,8 @@
   "private": false,
   "license": "MIT",
   "scripts": {
-    "start": "vite",
+    "start": "serve -s dist -l 2985",
+    "dev": "vite --port 2985",
     "build": "cross-env NODE_ENV=production tsc && vite build",
     "pretty": "prettier --check src",
     "lint": "yarn pretty && eslint --max-warnings 0 --ext ts,tsx,json src",

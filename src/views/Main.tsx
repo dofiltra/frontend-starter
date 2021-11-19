@@ -1,9 +1,3 @@
-import MainBlock from 'components/MainBlock'
-
-export default function MainPage() {
-  return (
-    <>
-      <MainBlock />
-    </>
-  )
+export default function MainView() {
+  return <>Change me</>
 }

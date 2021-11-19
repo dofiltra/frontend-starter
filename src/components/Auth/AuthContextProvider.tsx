@@ -1,14 +1,13 @@
+import { FC } from 'preact/compat'
+import { Loading } from 'components/Loader'
 import { auth } from 'services/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
-import { useCallback, useState } from 'react'
-import { useEffect } from 'preact/hooks'
-import { useLocalize } from '@borodutch-labs/localize-react'
+import { useCallback, useEffect, useState } from 'preact/hooks'
 import AuthContext, { User } from './AuthContext'
 
-const AuthContextProvider: React.FC = ({ children }) => {
+const AuthContextProvider: FC = ({ children }) => {
   const [isInitialized, setIsInitialized] = useState<boolean>(false)
   const [user, setUser] = useState<null | User>(null)
-  const { translate } = useLocalize()
 
   useEffect(() => {
     return onAuthStateChanged(auth, (im) => {
@@ -19,11 +18,11 @@ const AuthContextProvider: React.FC = ({ children }) => {
 
   const getContent = useCallback(() => {
     if (!isInitialized) {
-      return <div>{translate('loading')}</div>
+      return <Loading />
     }
 
     return children
-  }, [isInitialized, children, translate])
+  }, [isInitialized, children])
 
   return (
     <AuthContext.Provider value={{ user }}>{getContent()}</AuthContext.Provider>

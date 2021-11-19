@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import AboutPage from 'views/info/About'
 import AuthContextProvider from 'components/Auth/AuthContextProvider'
+import ContactsPage from 'views/info/Contacts'
 import FooterSmall from 'components/Footer/FooterSmall'
 import LocalizationProvider from 'localization/LocalizationProvider'
 import LoginView from 'views/Login'
@@ -17,6 +19,8 @@ const App = () => {
             <Routes>
               <Route path="/" element={<MainView />} />
               <Route path="/login" element={<LoginView />} />
+              <Route path="/info/about" element={<AboutPage />} />
+              <Route path="/info/contacts" element={<ContactsPage />} />
             </Routes>
             <FooterSmall />
           </AuthContextProvider>

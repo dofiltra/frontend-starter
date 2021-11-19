@@ -21,7 +21,7 @@ export const SignInButtons = () => {
         style={{ transition: 'all .15s ease' }}
       >
         <img alt="..." className="w-5 mr-1" src={'/img/google.svg'} />
-        {translate('sign in').toUpperCase()}
+        {translate('Sign in').toUpperCase()}
       </button>
     </>
   )

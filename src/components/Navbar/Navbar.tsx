@@ -6,6 +6,7 @@
 import { Link } from 'react-router-dom'
 import { SignInButtons } from 'components/Buttons/SignIn'
 import { SignOutButton } from 'components/Buttons/SignOut'
+import { useLocalize } from '@borodutch-labs/localize-react'
 import AppStore from 'stores/AppStore'
 import AuthContext from 'components/Auth/AuthContext'
 import DefaultButton from 'components/Buttons/Button'
@@ -13,13 +14,13 @@ import Language from 'models/Language'
 import React, { useContext } from 'preact/compat'
 
 export default function Navbar({}) {
-  // const [navbarOpen, setNavbarOpen] = useState(false)
   const { user } = useContext(AuthContext)
+  const { translate } = useLocalize()
 
   return (
     <>
-      <div className="navbar shadow-lg bg-neutral text-neutral-content rounded-box mb-2">
-        <div className="md:block px-2 mx-2 ">
+      <div className="navbar shadow-lg bg-neutral text-neutral-content rounded-box mb-2 ">
+        <div className="md:block mx-1">
           <Link to="/" className="btn btn-ghost rounded-btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -35,10 +36,10 @@ export default function Navbar({}) {
                 d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
               />
             </svg>
-            Rewriter
+            <span className="hidden md:block">{translate('HeaderMain')}</span>
           </Link>
         </div>
-        <div className="hidden md:block px-2 mx-2">
+        <div className="hidden md:block mx-1">
           <Link to="/info/api" className="btn btn-ghost rounded-btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +58,7 @@ export default function Navbar({}) {
             API
           </Link>
         </div>
-        <div className="hidden md:block px-2 mx-2">
+        <div className="hidden md:block mx-1">
           <Link to="/info/about" className="btn btn-ghost rounded-btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,10 +74,10 @@ export default function Navbar({}) {
                 d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
               />
             </svg>
-            About
+            {translate('HeaderAbout')}
           </Link>
         </div>
-        <div className="hidden md:block flex-1 px-2 mx-2">
+        <div className="hidden md:block flex-1 mx-1">
           <Link to="/info/contacts" className="btn btn-ghost rounded-btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -92,19 +93,19 @@ export default function Navbar({}) {
                 d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
               />
             </svg>
-            Contacts
+            {translate('HeaderContacts')}
           </Link>
         </div>
         <div className="flex-none">
-          <div className="flex justify-end md:justify-start flex-1 px-2">
+          <div className="flex justify-end flex-1 px-2">
             <div className="flex items-stretch">
-              <div className="dropdown dropdown-end">
+              <div className="dropdown dropdown-content">
                 <div tabIndex={0} className="btn btn-ghost rounded-btn">
                   {AppStore.language}
                 </div>
                 <ul
                   tabIndex={0}
-                  className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
+                  className="p-2 shadow menu dropdown-content bg-base-100 rounded-box"
                 >
                   {Object.values(Language).map((k) => (
                     <DefaultButton
@@ -121,7 +122,7 @@ export default function Navbar({}) {
           </div>
           <div className="flex justify-end flex-1 px-2">
             <div className="flex items-stretch">
-              <div className="dropdown dropdown-end">
+              <div className="dropdown">
                 <div tabIndex={0} className="btn btn-ghost rounded-btn">
                   {!user?.uid && (
                     <svg
@@ -164,7 +165,7 @@ export default function Navbar({}) {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
+                  className="p-2 shadow menu dropdown-content bg-base-100 rounded-box"
                 >
                   <li className="text-center pb-3">
                     <b>{user?.displayName?.toUpperCase()}</b>
